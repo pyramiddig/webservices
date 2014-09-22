@@ -5,7 +5,7 @@ describe UkTradeLeadQuery do
 
   describe '#generate_search_body' do
     context 'with no arguments' do
-      let(:query) { described_class.new }
+      let(:query) { described_class.new({}) }
       it 'generates search body with default options' do
         expect(JSON.parse(query.generate_search_body)).to eq({})
       end
