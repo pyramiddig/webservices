@@ -3,21 +3,15 @@ class Query
   MAX_SIZE = 100.freeze
   attr_reader :offset, :size, :sort, :q
 
-  def self.query_fields=(value)
-    class_variable_set('@@fields', value)
-  end
-  def self.query_fields
-    class_variable_get('@@fields') rescue nil
-  end
   def query_fields
-    self.class.query_fields
+    {query: [], filter: [], sort: []}
   end
 
   def self.setup_query(fields)
     fields.reverse_merge!(query: [], filter: [], sort: [])
     fields[:query ].each { |f| attr_reader f }
     fields[:filter].each { |f| attr_reader f }
-    self.query_fields = fields
+    define_method(:query_fields) { fields }
   end
 
   def initialize(options = {})
