@@ -28,6 +28,7 @@ Webservices::Application.routes.draw do
              'parature_faq'              => 'faqs',
              'ita_office_locations'      => 'ita_office_locations',
              'country_commercial_guides' => 'country_commercial_guides',
+             'content_explorers'         => 'content_explorer',
      }
 
     path.each do |controller, path|

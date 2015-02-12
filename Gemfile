@@ -19,7 +19,8 @@ gem 'htmlentities'
 gem 'us_states', git: 'git://github.com/GSA-OCSIT/us_states.git'
 gem 'git'
 gem 'rdiscount'
-
+gem 'mongo'
+gem 'bson_ext'
 gem 'industry_mapping_client', git: 'git://github.com/GovWizely/industry_mapping_client.git'
 
 group :production do
