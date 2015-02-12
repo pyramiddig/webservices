@@ -4,13 +4,15 @@ class ContentExplorerData
   include Importer
 
   #mongo_client = Mongo::MongoClient.new("54.68.10.157", 27017)
-  mongo_client = Mongo::MongoClient.new(localhost, 27017)
+  mongo_client = Mongo::MongoClient.new('localhost', 27017)
   db = mongo_client.db("test")
   coll = db["infoSave"]
-  array = coll.find.to_a.to_json
+  ENDPOINT = coll.find.to_a.to_json
 
 
   COLUMN_HASH = {
+    _id:               :id,
+    TradeTopics:      :trade_topics,
     Region:           :region,
     SubRegion:        :sub_region,
     Country:          :country,
