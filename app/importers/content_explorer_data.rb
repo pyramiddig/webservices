@@ -3,13 +3,6 @@ require 'mongo'
 class ContentExplorerData
   include Importer
 
-  #mongo_client = Mongo::MongoClient.new("54.68.10.157", 27017)
-  mongo_client = Mongo::MongoClient.new('localhost', 27017)
-  db = mongo_client.db("test")
-  coll = db["infoSave"]
-  ENDPOINT = coll.find.to_a.to_json
-
-
   COLUMN_HASH = {
     _id:               :id,
     TradeTopics:      :trade_topics,
@@ -28,14 +21,13 @@ class ContentExplorerData
     UpdatedBy:        :updated_by,
   }.freeze
 
-  def initialize(resource = ENDPOINT)
-    @resource = resource
-  end
-
   def import
-    Rails.logger.info "Importing #{@resource}"
-    doc = JSON.parse(open(@resource).read, symbolize_names: true)
-    entries = doc.map { |entry_hash| process_entry_info entry_hash }
+    #mongo_client = Mongo::MongoClient.new("54.68.10.157", 27017)
+    mongo_client = Mongo::MongoClient.new('localhost', 27017)
+    db = mongo_client.db("test")
+    coll = db["infoSave"]
+    cursor = coll.find()
+    entries = cursor.map { |entry_hash| process_entry_info entry_hash }
     ContentExplorer.index entries
   end
 
