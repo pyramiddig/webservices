@@ -5,7 +5,7 @@ class TradeArticleData
   ENDPOINT = 'https://new.export.gov/community/posts/content.json'
 
   COLUMN_HASH = {
-    id:                 :id,
+    _id:                 :id,
     core:               :evergreen,
     post:               :content,
     published_at:       :pub_date,

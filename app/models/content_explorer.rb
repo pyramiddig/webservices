@@ -24,8 +24,8 @@ class ContentExplorer
       },
       dynamic:    'false',
       properties: {
-        id:              { type: 'string', analyzer: 'title_keyword_analyzer' },
-        trade_topics:           { type: 'string', analyzer: 'title_keyword_analyzer' },
+        mongo_id:         { type: 'string', analyzer: 'title_keyword_analyzer' },
+        trade_topics:     { type: 'string', analyzer: 'title_keyword_analyzer' },
         region:           { type: 'string', analyzer: 'title_keyword_analyzer' },
         sub_region:       { type: 'string', analyzer: 'title_keyword_analyzer' },
         country:          { type: 'string', analyzer: 'title_keyword_analyzer' },

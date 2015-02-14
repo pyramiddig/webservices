@@ -3,41 +3,36 @@ require 'mongo'
 class ContentExplorerData
   include Importer
 
-  COLUMN_HASH = {
-    _id:               :id,
-    TradeTopics:      :trade_topics,
-    Region:           :region,
-    SubRegion:        :sub_region,
-    Country:          :country,
-    Industry:         :industry,
-    Sector:           :sector,
-    SubSector:        :sub_sector,
-    DocumentType:     :document_type,
-    Content:          :content,
-    VersionNumber:    :version_number,
-    CreatedDate:      :created_date,
-    CreatedBy:        :created_by,
-    UpdatedDate:      :updated_date,
-    UpdatedBy:        :updated_by,
-  }.freeze
-
   def import
-    #mongo_client = Mongo::MongoClient.new("54.68.10.157", 27017)
+    # currently pulling from localhost
     mongo_client = Mongo::MongoClient.new('localhost', 27017)
     db = mongo_client.db("test")
     coll = db["infoSave"]
-    cursor = coll.find()
-    entries = cursor.map { |entry_hash| process_entry_info entry_hash }
-    ContentExplorer.index entries
+    doc = coll.find()
+    articles = doc.map { |article_hash| process_article_info article_hash }
+    ContentExplorer.index articles
   end
 
   private
 
-  def process_entry_info(entry_hash)
-    entry = remap_keys COLUMN_HASH, entry_hash
-    entry[:content] = Sanitize.clean(entry[:content]) if entry[:content]
-    entry[:created_date] = Date.parse(entry[:created_date]) if entry[:created_date]
-    entry[:updated_date] = Date.parse(entry[:updated_date]) if entry[:updated_date]
-    entry
+  def process_article_info(article_hash)
+    article = {}
+    article[:mongo_id] = article_hash["_id"].to_s
+    article[:trade_topics] = article_hash["TradeTopics"]
+    article[:region] = article_hash["Region"]
+    article[:sub_region] = article_hash["SubRegion"]
+    article[:country] = article_hash["Country"]
+    article[:industry] = article_hash["Industry"]
+    article[:sector] = article_hash["Sector"]
+    article[:sub_sector] = article_hash["SubSector"]
+    article[:document_type] = article_hash["DocumentType"]
+    article[:content] = Sanitize.clean(article_hash["Content"])
+    article[:version_number] = article_hash["VersionNumber"]
+    article[:created_date] = Date.parse(article_hash["CreatedDate"].to_s)
+    article[:updated_date] = Date.parse(article_hash["UpdatedDate"].to_s)
+    article[:created_by] = article_hash["CreatedBy"]
+    article[:updated_by] = article_hash["UpdatedBy"]
+    article
   end
 end
+
