@@ -4,11 +4,12 @@ class ContentExplorerData
   include Importer
 
   def import
+    #mongo_client = Mongo::MongoClient.new("54.68.10.157", 27017)
     mongo_client = Mongo::MongoClient.new('localhost', 27017)
     db = mongo_client.db("test")
     coll = db["infoSave"]
-    doc = coll.find()
-    articles = doc.map { |article_hash| process_article_info article_hash }
+    cursor = coll.find()
+    articles = cursor.map { |article_hash| process_article_info article_hash }
     ContentExplorer.index articles
   end
 
@@ -34,3 +35,4 @@ class ContentExplorerData
     article
   end
 end
+
