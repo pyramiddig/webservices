@@ -4,7 +4,6 @@ class ContentExplorerData
   include Importer
 
   def import
-    #mongo_client = Mongo::MongoClient.new("54.68.10.157", 27017)
     mongo_client = Mongo::MongoClient.new('localhost', 27017)
     db = mongo_client.db("test")
     coll = db["infoSave"]
