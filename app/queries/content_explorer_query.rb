@@ -3,7 +3,7 @@ class ContentExplorerQuery < Query
     super
     @q = options[:q] if options[:q].present?
     @countries = options[:countries].downcase.split(',') if options[:countries].present?
-    @sectors = options[:sectors].downcase.split(',') if options[:sectors].present?
+    @trade_topics = options[:trade_topics].downcase.split(',') if options[:trade_topics].present?
     @industries = options[:industries].downcase.split(',') if options[:industries].present?
   end
 
@@ -25,10 +25,10 @@ class ContentExplorerQuery < Query
       json.bool do
         json.must do
           json.child! { json.terms { json.country @countries } } if @countries
-          json.child! { json.terms  { json.sector @sectors }  } if @sectors
+          json.child! { json.terms  { json.trade_topics @trade_topics }  } if @trade_topics
           json.child! { json.terms  { json.industry @industries }  } if @industries
         end
       end
-    end if @countries ||  @sectors || @industries
+    end if @countries ||  @trade_topics || @industries
   end
 end
