@@ -59,6 +59,7 @@ module ScreeningList
       doc[:id] = id
 
       doc[:alt_names] = rows.map do |row|
+        row[:alternate_name].gsub!("\u0092", "'") if row[:alternate_name]
         strip_nonascii(row[:alternate_name])
       end.compact.uniq
 
@@ -70,6 +71,7 @@ module ScreeningList
         doc[:source_information_url] =
         'http://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list'
 
+      doc.each { |key, value| doc[key] = value.gsub("\u0092", "'") if value.is_a?(String)}
       doc
     end
 
@@ -88,6 +90,7 @@ module ScreeningList
     def process_address(row)
       address = remap_keys(ADDRESS_HASH, row.to_hash)
       address[:country] &&= lookup_country(address[:country])
+      address.each { |key, value| address[key] = value.gsub("\u0092", "'") if value}
       address
     end
   end
