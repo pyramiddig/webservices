@@ -32,7 +32,12 @@ module TradeLead
         @encoding = encoding
       end
 
+      def setup
+        @loaded_resource = open(@resource, "r:#{@encoding}").read
+      end
+
       def import
+        setup
         entries = import_full_xml.map { |entry| process_xml_entry(entry) }.compact
         TradeLead::Fbopen.index(entries)
       end
@@ -45,13 +50,11 @@ module TradeLead
 
       def import_full_xml
         entries = []
-        open(@resource) do |file|
-          Nokogiri::XML::Reader.from_io(file).each do |node|
-            if %w(PRESOL COMBINE MOD).include?(node.name) && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
-              entry = extract_fields(Nokogiri::XML(node.outer_xml), XPATHS)
-              entry[:notice_type] = node.name
-              entries << entry
-            end
+        Nokogiri::XML::Reader(@loaded_resource).each do |node|
+          if %w(PRESOL COMBINE MOD).include?(node.name) && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
+            entry = extract_fields(Nokogiri::XML(node.outer_xml), XPATHS)
+            entry[:notice_type] = node.name
+            entries << entry
           end
         end
         entries

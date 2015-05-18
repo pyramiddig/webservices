@@ -29,8 +29,13 @@ module TradeEvent
       self.reject_if_ends_before = options.fetch(:reject_if_ends_before, Date.current)
     end
 
+    def setup
+      @loaded_resource = resource_fh
+    end
+
     def import
-      doc = Nokogiri::XML(resource_fh)
+      setup
+      doc = Nokogiri::XML(@loaded_resource)
       trade_events = doc.xpath('//item').map do |event_info|
         trade_event = process_event_info(event_info)
         trade_event

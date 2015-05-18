@@ -56,13 +56,17 @@ module TradeLead
         @encoding = encoding
       end
 
+      def setup
+        @loaded_resource = open(@resource, "r:#{@encoding}").read
+      end
+
       def import
+        setup
         TradeLead::Fbopen.index(leads)
       end
 
       def leads
-        fh = open(@resource, "r:#{@encoding}")
-        doc = FbopenParser.new.convert(fh)
+        doc = FbopenParser.new.convert(@loaded_resource)
         doc.map { |e| process_entry(e) }.compact
       end
 

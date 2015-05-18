@@ -37,8 +37,13 @@ module TradeEvent
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource)
+    end
+
     def import
-      doc = Nokogiri::XML(open(@resource))
+      setup
+      doc = Nokogiri::XML(@loaded_resource)
       trade_events = doc.xpath('//EVENTINFO').map do |event_info|
         trade_event = process_event_info(event_info)
         trade_event

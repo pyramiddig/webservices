@@ -29,10 +29,15 @@ module TradeLead
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource, 'r:windows-1252:utf-8')
+      @loaded_resource.readline
+      @loaded_resource = @loaded_resource.read
+    end
+
     def import
-      file = open @resource
-      file.readline # HACK: to remove first line from csv
-      rows = CSV.parse(file, headers: true, header_converters: :symbol, encoding: 'windows-1252:utf-8')
+      setup
+      rows = CSV.parse(@loaded_resource, headers: true, header_converters: :symbol, encoding: 'windows-1252:utf-8')
       entries = []
       rows.each do |row|
         next if %w(archived retracted).include? row[:status].downcase

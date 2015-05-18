@@ -16,13 +16,19 @@ module TradeLead
     MULTI_VALUED_XPATHS = {
       categories: './category',
     }
+
     def initialize(resource = ENDPOINT)
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource).read
+    end
+
     def import
+      setup
       Rails.logger.info "Importing #{@resource}"
-      document = Nokogiri::XML(open(@resource))
+      document = Nokogiri::XML(@loaded_resource)
       leads = document.xpath('rss/channel/item').map { |item| process_entry item }.compact
       TradeLead::Mca.index leads
     end

@@ -24,9 +24,14 @@ class MarketResearchData
     @resource = resource
   end
 
+  def setup
+    @loaded_resource = open(@resource, 'r:windows-1252:utf-8')
+  end
+
   def import
+    setup
     entries = []
-    MrlParser.foreach(@resource) do |source_hash|
+    MrlParser.foreach(@loaded_resource) do |source_hash|
       entries << process_source_hash(source_hash)
     end
     MarketResearch.index entries

@@ -27,8 +27,13 @@ class TradeArticleData
     @resource = resource
   end
 
+  def setup
+    @loaded_resource = open(@resource).read
+  end
+
   def import
-    doc = JSON.parse(open(@resource).read, symbolize_names: true)
+    setup
+    doc = JSON.parse(@loaded_resource, symbolize_names: true)
     articles = doc.map { |article_hash| process_article_info article_hash }
     TradeArticle.index articles
   end

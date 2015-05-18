@@ -18,6 +18,7 @@ describe TradeLead::CanadaData do
   describe '#leads' do
     let(:expected_lead_data) { YAML.load_file("#{File.dirname(__FILE__)}/canada/expected_canada_leads.yaml") }
     it 'correctly transform leads from csv' do
+      importer.setup
       canada_leads = importer.leads
       expected_lead_data.each_with_index { |expected_lead, index| expect(canada_leads[index]).to eq(expected_lead) }
     end

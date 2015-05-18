@@ -17,9 +17,14 @@ module ScreeningList
     def initialize(resource = ENDPOINT)
       @resource = resource
     end
+    
+    def setup
+      @loaded_resource = open(@resource).read
+    end
 
     def import
-      rows = CSV.parse(open(@resource).read, encoding: 'UTF-8').map do |row|
+      setup
+      rows = CSV.parse(@loaded_resource, encoding: 'UTF-8').map do |row|
         { country: row[0],
           name:    row[1],
           address: row[2] }

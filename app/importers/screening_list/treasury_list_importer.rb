@@ -16,8 +16,13 @@ module ScreeningList
       @program_id = self.class.program_id
     end
 
+    def setup
+      @loaded_resource = open(@resource)
+    end
+
     def import
-      source = Nokogiri::XML(open(@resource))
+      setup
+      source = Nokogiri::XML(@loaded_resource)
 
       docs = source.xpath(document_node_xpath).map do |node|
         process_node(node) if should_process?(node)

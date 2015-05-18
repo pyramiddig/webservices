@@ -35,8 +35,13 @@ module ScreeningList
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource, 'r:iso-8859-1:utf-8').read
+    end
+
     def import
-      rows = CSV.parse(open(@resource, 'r:iso-8859-1:utf-8').read,
+      setup
+      rows = CSV.parse(@loaded_resource,
                        headers:           true,
                        header_converters: :symbol)
 

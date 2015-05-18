@@ -24,8 +24,13 @@ module TradeLead
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource, 'r:windows-1252:utf-8').read
+    end
+
     def import
-      rows = CSV.read(@resource, headers: true, header_converters: :symbol, encoding: 'windows-1252:utf-8')
+      setup
+      rows = CSV.parse(@loaded_resource, headers: true, header_converters: :symbol)
       entries = rows.map { |row| process_row row.to_h }.compact
       TradeLead::Australia.index(entries)
     end

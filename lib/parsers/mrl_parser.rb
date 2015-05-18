@@ -10,9 +10,9 @@ class MrlParser
     @headers = extract_headers header_row
   end
 
-  def self.foreach(resource, &block)
+  def self.foreach(loaded_resource, &block)
     parser = nil
-    open(resource, 'r:windows-1252:utf-8').each(ROW_SEPARATOR) do |mrl_row|
+    loaded_resource.each(ROW_SEPARATOR) do |mrl_row|
       stripped_row = mrl_row.strip
       next if stripped_row.blank?
 

@@ -37,14 +37,19 @@ module ScreeningList
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource).read
+    end
+
     def import
+      setup
       model_class.index(entries)
     end
 
     private
 
     def rows
-      r = CSV.parse(open(@resource).read, headers: true, header_converters: :symbol, encoding: 'UTF-8', col_sep: "\t").map(&:to_h)
+      r = CSV.parse(@loaded_resource, headers: true, header_converters: :symbol, encoding: 'UTF-8', col_sep: "\t").map(&:to_h)
 
       ensure_expected_headers(r.first)
       r

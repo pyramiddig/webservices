@@ -34,12 +34,17 @@ module TradeLead
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource, 'r:UTF-8').read
+    end
+
     def import
+      setup
       TradeLead::Canada.index(leads)
     end
 
     def leads
-      doc = CSV.parse(open(@resource, 'r:UTF-8').read, headers: true, header_converters: :symbol, encoding: 'UTF-8')
+      doc = CSV.parse(@loaded_resource, headers: true, header_converters: :symbol)
       doc.map { |entry| process_entry entry.to_h }.compact
     end
 

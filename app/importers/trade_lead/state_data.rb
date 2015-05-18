@@ -33,8 +33,13 @@ module TradeLead
       @resource = resource
     end
 
+    def setup
+      @loaded_resource = open(@resource).read
+    end
+
     def import
-      doc = JSON.parse(open(@resource).read, symbolize_names: true)
+      setup
+      doc = JSON.parse(@loaded_resource, symbolize_names: true)
 
       entries = []
       doc[:features].each do |article_hash|
