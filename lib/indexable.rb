@@ -38,6 +38,24 @@ module Indexable
     Rails.logger.info "Imported #{records.size} entries to index #{index_name}"
   end
 
+  def save_version(version)
+    ES.client.index(
+      index: index_name,
+      type: 'resource_checksum',
+      body: version
+    )
+    ES.client.indices.refresh(index: index_name)
+  end
+
+  def get_version
+    ES.client.search(
+      index: index_name,
+      type: 'resource_checksum',
+      size: 1,
+      sort: [ { "_id": { "order": "desc" } } ]
+    )
+  end
+
   def search_for(options)
     klass = "V#{options[:api_version]}::#{name}Query".constantize rescue "#{name}Query".constantize
     query = klass.new(options)

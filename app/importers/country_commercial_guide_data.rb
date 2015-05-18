@@ -1,5 +1,6 @@
 class CountryCommercialGuideData
   include Importer
+  attr_reader :version
 
   URI = 'https://github.com/GovWizely/ccg.git'
   NAME = 'ccg'
@@ -11,6 +12,7 @@ class CountryCommercialGuideData
 
   def import
     setup
+    return if version == model_class.get_version
 
     docs = Dir["#{@path}/source/**/*.yaml"].map do |yaml_file|
       country_level_info = extract_country_level_info(yaml_file)
@@ -18,6 +20,8 @@ class CountryCommercialGuideData
     end.flatten
 
     CountryCommercialGuide.index(docs)
+
+    model_class.set_version version
   ensure
     teardown
   end
@@ -30,6 +34,7 @@ class CountryCommercialGuideData
       dir = Dir.mktmpdir
       g = Git.clone(URI, NAME, path: dir)
       g.checkout(BRANCH)
+      @version = g.log.first.sha
       @path = "#{dir}/#{NAME}"
       # :nocov:
     else

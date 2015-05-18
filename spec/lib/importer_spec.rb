@@ -150,4 +150,26 @@ describe Importer do
       Mock.search_for({})[:hits].map { |h| h[:_source].deep_symbolize_keys }
     end
   end
+
+  describe "#import's checksum memoizing logic" do
+    let(:resource) { [{ id: 1, content: 'foo' }] }
+
+    it 'reindexes if DataClass#load_resource hook not present' do
+      expect(Mock).to receive(:index).twice
+      MockData.new(resource).import
+      MockData.new(resource).import
+    end
+
+    it 'skips second index #resource_changed? is false' do
+      class MockData
+        def load_resource
+          @docs
+        end
+      end
+      expect(Mock).to receive(:index).once
+      MockData.new(resource).import
+      MockData.new(resource).import
+    end
+
+  end
 end
