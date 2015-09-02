@@ -22,6 +22,7 @@ module ScreeningList
     self.group_by = %i(name federal_register_notice effective_date)
 
     include ScreeningList::MakeNameVariants
+    include ScreeningList::MakeAddressVariants
 
     ENDPOINT = 'http://www.bis.doc.gov/index.php/forms-documents/doc_download/1072-el'
 
@@ -86,7 +87,7 @@ module ScreeningList
           'http://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list'
 
       make_names(doc)
-
+      make_addresses(doc)
       doc
     end
 
