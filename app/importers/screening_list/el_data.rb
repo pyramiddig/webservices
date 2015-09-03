@@ -87,7 +87,7 @@ module ScreeningList
           'http://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/entity-list'
 
       make_names(doc)
-      make_addresses(doc)
+      make_addresses(doc) if doc[:addresses][0][:address].present?
       doc
     end
 
