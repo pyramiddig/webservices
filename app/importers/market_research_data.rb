@@ -29,10 +29,12 @@ class MarketResearchData
 
   def import
     entries = []
+    @url_count = 0
     MrlParser.foreach(loaded_resource) do |source_hash|
       entries << process_source_hash(source_hash)
     end
-    MarketResearch.index entries
+    puts @url_count
+    #MarketResearch.index entries
   end
 
   private
@@ -44,6 +46,8 @@ class MarketResearchData
     entry[:industries] = extract_industries(entry[:industries])
     entry[:report_type] = detect_report_type(entry[:report_type])
     entry[:url] = "http://mr.export.gov/docs/#{entry[:url]}" if entry[:url].present?
+    @url_count += 1 if entry[:url].present?
+    #sleep 1
     entry
   end
 

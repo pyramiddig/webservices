@@ -33,7 +33,9 @@ module TradeLead
       end
 
       def import
+        @url_count = 0
         batched_import { |batch| TradeLead::Fbopen.index(batch) }
+        puts "Fbopen Leads full:  #{@url_count}"
       end
 
       def model_class
@@ -71,7 +73,7 @@ module TradeLead
 
         entry = process_xml_dates(entry)
         return nil unless entry[:end_date].nil? || entry[:end_date] >= Date.today
-
+        @url_count += 1 if entry[:url].present?
         entry[:description] &&= Nokogiri::HTML.fragment(entry[:description]).inner_text.squish
         entry[:contact] &&= Nokogiri::HTML.fragment(entry[:contact]).inner_text.squish
         entry[:source] = TradeLead::Fbopen.source[:code]

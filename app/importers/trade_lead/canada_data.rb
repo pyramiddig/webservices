@@ -36,7 +36,10 @@ module TradeLead
     end
 
     def import
-      TradeLead::Canada.index(leads)
+      @url_count = 0
+      entries = leads
+      puts "Canada Trade Leads:  #{@url_count}"
+      #TradeLead::Canada.index(leads)
     end
 
     def leads
@@ -60,7 +63,7 @@ module TradeLead
       end
 
       lead[:urls] = lead[:urls].split(',').map(&:squish) if lead[:urls]
-
+      @url_count += lead[:urls].size if lead[:urls].is_a?(Array)
       lead[:country] = 'CA'
       lead[:source] = TradeLead::Canada.source[:code]
       lead

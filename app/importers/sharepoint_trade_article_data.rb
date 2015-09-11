@@ -54,14 +54,14 @@ class SharepointTradeArticleData
   def import
     resp = @s3.list_objects(bucket: 'ngn-bluebox')
     keys = get_object_keys(resp)
-
+    @url_count = 0
     articles = keys.map do |key|
       object = @s3.get_object(bucket: 'ngn-bluebox', key: "#{key}").body
       xml = Nokogiri::XML(object)
       article_hash = extract_article_fields(xml)
       process_article_info(article_hash)
     end
-
+    puts "Sharepoint Articles:  " + @url_count.to_s
     SharepointTradeArticle.index(articles)
   end
 
@@ -95,6 +95,7 @@ class SharepointTradeArticleData
     article[:trade_url] = 'http://www.export.gov/articles/' + article[:seo_metadata_title].parameterize + '.html'
     article = remove_duplicates(article)
     article = replace_nulls(article)
+    @url_count += 1 if article[:trade].present?
     article
   end
 

@@ -28,8 +28,10 @@ class EccnData
     if rows[0].map(&:downcase) != EXPECTED_CSV_HEADERS
       fail "'#{rows[0]}' are not the headers we expect"
     end
-
-    model_class.index(rows[1..-1].map { |row| process_row(row) })
+    @url_count = 0
+    entries = rows[1..-1].map { |row| process_row(row) }
+    puts "ECCN:  #{@url_count}"
+    #model_class.index(rows[1..-1].map { |row| process_row(row) })
   end
 
   private
@@ -50,7 +52,9 @@ class EccnData
     doc[:url0] = urls[0]
     doc[:url1] = urls[1]
     doc[:url2] = urls[2]
-
+    @url_count += 1 if doc[:url0].present?
+    @url_count += 1 if doc[:url1].present?
+    @url_count += 1 if doc[:url2].present?
     doc
   end
 

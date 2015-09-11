@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Importable
   extend ActiveSupport::Concern
   # The module provides functionality useful for importing source data, and
@@ -109,6 +111,15 @@ module Importable
     event_hash[:address].grep(/[A-Z]{2} [0-9]{5}(-\d{4})*$/) do |address_line|
       address_line.split(',').reverse[1].to_s.squish
     end.compact.first
+  end
+
+  def get_bitly_url(url_string)
+
+    url = CGI.escape(url_string)
+    response = open("https://api-ssl.bitly.com/v3/user/link_save?access_token=#{ENV['BITLY_ACCESS_TOKEN']}&longUrl=#{url}").read
+    #sleep 5
+    puts response
+
   end
 
   delegate :can_purge_old?, to: :model_class
