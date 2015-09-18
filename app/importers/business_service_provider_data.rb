@@ -30,6 +30,7 @@ class BusinessServiceProviderData
     article[:contact_name] = article_hash['company']['contact']['name']
     article[:category] =  article_hash['company']['category']['title']
     article[:id] = Utils.generate_id(article, %i(company_name company_description))
+    article[:company_website] = get_bitly_url(article[:company_website]) if article[:company_website].present?
     sanitize_entry(article)
   end
 end

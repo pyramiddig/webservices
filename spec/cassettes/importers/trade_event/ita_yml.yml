@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://emenuapps.ita.doc.gov/ePublic/event/editWebReg.do?SmartCode=4Q03&title=TradeEvent::Ita
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:33:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '264'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"4c575b6c78d63362406a1997997d2bad95eb5c71"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://1.usa.gov/1Kp000n",
+        "aggregate_link": "http://bit.ly/1Kp00gA", "long_url": "https://emenuapps.ita.doc.gov/ePublic/event/editWebReg.do?SmartCode=4Q03",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:33:52 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.workboatshow.com&title=TradeEvent::Ita
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:33:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '198'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"62af15d59d804fba4520472c241e137993df54ec"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp158k",
+        "aggregate_link": "http://bit.ly/fRpr46", "long_url": "http://www.workboatshow.com",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:33:53 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.hospitalar.com/ingles/index.html&title=TradeEvent::Ita
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:33:55 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '214'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"5ffa8951d0982479f797279fead06602d507dc8e"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp158r",
+        "aggregate_link": "http://bit.ly/aY76ZU", "long_url": "http://www.hospitalar.com/ingles/index.html",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:33:55 GMT
+recorded_with: VCR 2.9.3

@@ -3,8 +3,10 @@ require 'spec_helper'
 describe 'ECCN API V1', type: :request do
   before(:all) do
     Eccn.recreate_index
-    EccnData.new(
-      "#{Rails.root}/spec/fixtures/eccns/eccns.csv").import
+    VCR.use_cassette('importers/eccn.yml', record: :once) do
+      EccnData.new(
+        "#{Rails.root}/spec/fixtures/eccns/eccns.csv").import
+    end
   end
 
   describe 'GET /v1/eccns/search' do

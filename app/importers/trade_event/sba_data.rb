@@ -103,7 +103,7 @@ module TradeEvent
       doc[:id] = Utils.generate_id(doc, %i(city cost country event_name event_type start_date
                                            start_time end_date end_time time_zone))
       doc[:cost] &&= doc[:cost].gsub(/\s+/, '')
-
+      doc[:registration_link] = get_bitly_url(doc[:registration_link]) if doc[:registration_link].present?
       sanitize_entry(doc)
     end
 

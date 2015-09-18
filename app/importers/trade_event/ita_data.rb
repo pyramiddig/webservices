@@ -56,6 +56,8 @@ module TradeEvent
       process_optional_fields(event_hash)
 
       event_hash[:source] = model_class.source[:code]
+      event_hash[:url] = get_bitly_url(event_hash[:url]) if event_hash[:url].present?
+      event_hash[:registration_link] = get_bitly_url(event_hash[:registration_link]) if event_hash[:registration_link].present?
       event_hash
     end
 

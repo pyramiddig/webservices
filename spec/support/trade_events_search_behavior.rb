@@ -17,8 +17,10 @@ end
 shared_context 'TradeEvent::Ita data' do
   before(:all) do
     TradeEvent::Ita.recreate_index
-    TradeEvent::ItaData.new(
-      "#{Rails.root}/spec/fixtures/trade_events/ita/trade_events.xml").import
+    VCR.use_cassette('importers/trade_event/ita.yml', record: :once) do
+      TradeEvent::ItaData.new(
+        "#{Rails.root}/spec/fixtures/trade_events/ita/trade_events.xml").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Ita] = JSON.parse(open(
@@ -29,8 +31,10 @@ end
 shared_context 'TradeEvent::Ita data v2' do
   before(:all) do
     TradeEvent::Ita.recreate_index
-    TradeEvent::ItaData.new(
-      "#{Rails.root}/spec/fixtures/trade_events/ita/trade_events.xml").import
+    VCR.use_cassette('importers/trade_event/ita.yml', record: :once) do
+      TradeEvent::ItaData.new(
+        "#{Rails.root}/spec/fixtures/trade_events/ita/trade_events.xml").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Ita] = JSON.parse(open(
@@ -89,10 +93,12 @@ end
 shared_context 'TradeEvent::Sba data' do
   before(:all) do
     TradeEvent::Sba.recreate_index
-    TradeEvent::SbaData.new(
-      "#{Rails.root}/spec/fixtures/trade_events/sba/new_events_listing.xml?offset=0",
-      { reject_if_ends_before: Date.parse('2013-01-11') }, 'r'
-    ).import
+    VCR.use_cassette('importers/trade_event/sba.yml', record: :once) do
+      TradeEvent::SbaData.new(
+        "#{Rails.root}/spec/fixtures/trade_events/sba/new_events_listing.xml?offset=0",
+        { reject_if_ends_before: Date.parse('2013-01-11') }, 'r'
+      ).import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Sba] = JSON.parse(open(
@@ -107,10 +113,12 @@ end
 shared_context 'TradeEvent::Sba data v2' do
   before(:all) do
     TradeEvent::Sba.recreate_index
-    TradeEvent::SbaData.new(
-      "#{Rails.root}/spec/fixtures/trade_events/sba/new_events_listing.xml?offset=0",
-      { reject_if_ends_before: Date.parse('2013-01-11') }, 'r'
-    ).import
+    VCR.use_cassette('importers/trade_event/sba.yml', record: :once) do
+      TradeEvent::SbaData.new(
+        "#{Rails.root}/spec/fixtures/trade_events/sba/new_events_listing.xml?offset=0",
+        { reject_if_ends_before: Date.parse('2013-01-11') }, 'r'
+      ).import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Sba] = JSON.parse(open(
@@ -215,7 +223,9 @@ end
 shared_context 'TradeEvent::Ustda data' do
   before(:all) do
     TradeEvent::Ustda.recreate_index
-    TradeEvent::UstdaData.new("#{Rails.root}/spec/fixtures/trade_events/ustda/events.csv").import
+    VCR.use_cassette('importers/trade_event/ustda.yml', record: :once) do
+      TradeEvent::UstdaData.new("#{Rails.root}/spec/fixtures/trade_events/ustda/events.csv").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Ustda] = JSON.parse(open(
@@ -230,7 +240,9 @@ end
 shared_context 'TradeEvent::Ustda data v2' do
   before(:all) do
     TradeEvent::Ustda.recreate_index
-    TradeEvent::UstdaData.new("#{Rails.root}/spec/fixtures/trade_events/ustda/events.csv").import
+    VCR.use_cassette('importers/trade_event/ustda.yml', record: :once) do
+      TradeEvent::UstdaData.new("#{Rails.root}/spec/fixtures/trade_events/ustda/events.csv").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Ustda] = JSON.parse(open(
@@ -280,9 +292,11 @@ end
 shared_context 'TradeEvent::Dl data' do
   before(:all) do
     TradeEvent::Dl.recreate_index
-    TradeEvent::DlData.new(
-      "#{Rails.root}/spec/fixtures/trade_events/dl/trade_events.xml",
-    ).import
+    VCR.use_cassette('importers/trade_event/dl.yml', record: :once) do
+      TradeEvent::DlData.new(
+        "#{Rails.root}/spec/fixtures/trade_events/dl/trade_events.xml",
+      ).import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Dl] = JSON.parse(open(
@@ -297,9 +311,11 @@ end
 shared_context 'TradeEvent::Dl data v2' do
   before(:all) do
     TradeEvent::Dl.recreate_index
-    TradeEvent::DlData.new(
-      "#{Rails.root}/spec/fixtures/trade_events/dl/trade_events.xml",
-    ).import
+    VCR.use_cassette('importers/trade_event/dl.yml', record: :once) do
+      TradeEvent::DlData.new(
+        "#{Rails.root}/spec/fixtures/trade_events/dl/trade_events.xml",
+      ).import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeEvent::Dl] = JSON.parse(open(

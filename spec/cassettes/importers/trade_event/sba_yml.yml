@@ -1,0 +1,225 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.eventbrite.com/e/export-101-your-door-to-the-world-tickets-11683261951&title=TradeEvent::Sba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:33:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '253'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"4be0396a5679b610ba22afec94b81c909b48d4c1"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp13gK",
+        "aggregate_link": "http://bit.ly/1umL6SN", "long_url": "http://www.eventbrite.com/e/export-101-your-door-to-the-world-tickets-11683261951",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:33:57 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://tinyrul.com/Flight14&title=TradeEvent::Sba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:33:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '199'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"45454af40e3134c5c4e0a000cb4198901192bb22"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp15oN",
+        "aggregate_link": "http://bit.ly/1Kp15oO", "long_url": "http://tinyrul.com/Flight14",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:33:58 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.duq.edu/sbdc/&title=TradeEvent::Sba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:33:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '196'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"c019ec686b330c3e472928b4954f58cb6c019f1d"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp15oV",
+        "aggregate_link": "http://bit.ly/1Kp15oW", "long_url": "http://www.duq.edu/sbdc/",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:33:59 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://clients.utahsbdc.org/reg.aspx?mode=event%26event=6340028&title=TradeEvent::Sba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '234'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"030ca37c06a066858d348ef69fa8e746fffc0219"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp15Fd",
+        "aggregate_link": "http://bit.ly/1Kp15Fe", "long_url": "https://clients.utahsbdc.org/reg.aspx?mode=event&event=6340028",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:00 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://events.lachamber.com/sbaweb/events/events.asp?%26id=76086%26wpid=-101%26details=True%26date=%26cale_id=5206%26newsession=TRUE%26sid=122646944&title=TradeEvent::Sba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '306'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"8736207b3e4f36d2db2c3e3e8545f4282d6e7673"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp15Ff",
+        "aggregate_link": "http://bit.ly/1Kp15Fg", "long_url": "http://events.lachamber.com/sbaweb/events/events.asp?&id=76086&wpid=-101&details=True&date=&cale_id=5206&newsession=TRUE&sid=122646944",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:01 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.mass.gov/export/events.htm%23tsra&title=TradeEvent::Sba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '217'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"568dc26038a87cace1801d832ce6016d44c9c194"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1Kp13xe",
+        "aggregate_link": "http://bit.ly/1Kp13xf", "long_url": "http://www.mass.gov/export/events.htm#tsra",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:02 GMT
+recorded_with: VCR 2.9.3

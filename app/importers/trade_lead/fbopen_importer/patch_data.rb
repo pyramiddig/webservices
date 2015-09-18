@@ -57,9 +57,6 @@ module TradeLead
       end
 
       def import
-        @url_count = 0
-        #entries = leads
-        puts "Fbopen Leads patch:  #{@url_count}"
         TradeLead::Fbopen.index(leads)
       end
 
@@ -90,10 +87,11 @@ module TradeLead
         lead[:end_date] = extract_end_date(lead)
         lead.delete(:resp_date)
         lead.delete(:arch_date)
-        @url_count += 1 if lead[:url].present?
+
         lead[:description] &&= Nokogiri::HTML.fragment(lead[:description]).inner_text.squish
         lead[:source] = TradeLead::Fbopen.source[:code]
         lead[:id]      = lead[:contract_number]
+        lead[:url] = get_bitly_url(lead[:url]) if lead[:url].present?
         EMPTY_RECORD.dup.merge(lead)
       end
 

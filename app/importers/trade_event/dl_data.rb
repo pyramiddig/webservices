@@ -34,6 +34,7 @@ module TradeEvent
       event_hash = extract_fields(event_info, XPATHS)
       event_hash[:source] = model_class.source[:code]
       event_hash[:id] = Utils.generate_id(event_hash, %i(event_name description url id))
+      event_hash[:url] = get_bitly_url(event_hash[:url]) if event_hash[:url].present?
       sanitize_entry(event_hash)
     end
   end

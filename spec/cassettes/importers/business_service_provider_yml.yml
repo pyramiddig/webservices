@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.stbgroup.com.sv&title=BusinessServiceProvider
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:59:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '215'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"7475a1e1b13869dd4007aeadf5eefade09adb727"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://bit.ly/1NuRNNb",
+        "aggregate_link": "http://bit.ly/1NuRNNc", "long_url": "http://www.stbgroup.com.sv",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:59:34 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.alfa-electronix.com&title=BusinessServiceProvider
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:59:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '219'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"0b3f423674b8c7a6cd4fbb54c526e452593e796b"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://bit.ly/1W0KKyW",
+        "aggregate_link": "http://bit.ly/1W0KKyX", "long_url": "http://www.alfa-electronix.com",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:59:35 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.b2bweee.com&title=BusinessServiceProvider
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:59:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '211'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"6aca03e65bcff7a3b1a45db821bb85f521723c10"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://bit.ly/1NuRNNm",
+        "aggregate_link": "http://bit.ly/1NuRNNn", "long_url": "http://www.b2bweee.com",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:59:36 GMT
+recorded_with: VCR 2.9.3

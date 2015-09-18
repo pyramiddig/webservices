@@ -1,0 +1,151 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/991-ccl9&title=Eccn
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:40:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '262'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"954c98fa40ec91839f5ca871aef80cc193f6c7ea"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://1.usa.gov/1NuQBtt",
+        "aggregate_link": "http://bit.ly/1NuQBJH", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/991-ccl9",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:40:47 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/952-ccl6&title=Eccn
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:40:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '262'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"6cffb256d880774fa1d7d70f5460571b3769e3e4"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://1.usa.gov/1W0JFak",
+        "aggregate_link": "http://bit.ly/1W0JFal", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/952-ccl6",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:40:48 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/989-ccl1&title=Eccn
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:40:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '262'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"196f1d3932a67ce15e5503fd7b93ba462ae064d0"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://1.usa.gov/1W0JH22",
+        "aggregate_link": "http://bit.ly/1W0JH25", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/989-ccl1",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:40:49 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/950-ccl5-pt1&title=Eccn
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 19:40:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '266'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"5b83571fce3021756a733556d0a67abbd980889a"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 304, "data": {"link_save": {"link": "http://1.usa.gov/1W0JFr0",
+        "aggregate_link": "http://bit.ly/1W0JFr1", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/950-ccl5-pt1",
+        "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 19:40:50 GMT
+recorded_with: VCR 2.9.3

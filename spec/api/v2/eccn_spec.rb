@@ -4,8 +4,10 @@ describe 'ECCN API V2', type: :request do
   include_context 'V2 headers'
   before(:all) do
     Eccn.recreate_index
-    EccnData.new(
-      "#{Rails.root}/spec/fixtures/eccns/eccns.csv").import
+    VCR.use_cassette('importers/eccn.yml', record: :once) do
+      EccnData.new(
+        "#{Rails.root}/spec/fixtures/eccns/eccns.csv").import
+    end
   end
 
   describe 'GET /eccns/search.json' do

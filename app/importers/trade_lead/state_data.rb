@@ -62,7 +62,7 @@ module TradeLead
       %i(comments description title tags contact).each do |field|
         entry[field].squish! if entry[field]
       end
-
+      entry[:url] = get_bitly_url(entry[:url]) if entry[:url].present?
       entry
     end
   end

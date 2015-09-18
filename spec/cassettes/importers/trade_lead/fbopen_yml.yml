@@ -1,0 +1,114 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://www.fbo.gov/spg/USAF/AMC/92CONS/FA4620-14-Q-A011/listing.html&title=TradeLead::Fbopen
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 21:35:30 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '244'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"f8b74bfb5c1fc068ff83291d8ed51d3dbf4ad2d3"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1MtB5iS",
+        "aggregate_link": "http://bit.ly/1MtB5iT", "long_url": "https://www.fbo.gov/spg/USAF/AMC/92CONS/FA4620-14-Q-A011/listing.html",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 21:35:30 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://www.fbo.gov/notices/d22c329c7c384c1a8a831ece0637a123&title=TradeLead::Fbopen
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 21:35:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '235'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"c229766fd93cfcb8009d86cb90d342bb4b010603"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1MtB5zc",
+        "aggregate_link": "http://bit.ly/1MtB5zd", "long_url": "https://www.fbo.gov/notices/d22c329c7c384c1a8a831ece0637a123",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 21:35:31 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://www.fbo.gov/notices/5386fb47876daf8cb97bda7e218a7fbd&title=TradeLead::Fbopen
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 21:35:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '235'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"509d218f048500b64bccfa4a0f0b9763abb02576"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1MtB52g",
+        "aggregate_link": "http://bit.ly/1MtB52h", "long_url": "https://www.fbo.gov/notices/5386fb47876daf8cb97bda7e218a7fbd",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 21:35:32 GMT
+recorded_with: VCR 2.9.3

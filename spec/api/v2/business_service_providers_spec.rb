@@ -4,8 +4,10 @@ describe 'Business Service Providers API V2', type: :request do
   include_context 'V2 headers'
   before(:all) do
     BusinessServiceProvider.recreate_index
-    BusinessServiceProviderData.new(
-      "#{Rails.root}/spec/fixtures/business_service_providers/articles.json").import
+    VCR.use_cassette('importers/business_service_provider.yml', record: :once) do
+      BusinessServiceProviderData.new(
+        "#{Rails.root}/spec/fixtures/business_service_providers/articles.json").import
+    end
   end
 
   describe 'GET /business_service_providers/search.json' do

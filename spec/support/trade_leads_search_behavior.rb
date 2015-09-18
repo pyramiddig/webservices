@@ -10,8 +10,10 @@ end
 shared_context 'TradeLead::Australia data' do
   before(:all) do
     TradeLead::Australia.recreate_index
-    TradeLead::AustraliaData.new(
-      "#{Rails.root}/spec/fixtures/trade_leads/australia/trade_leads.csv").import
+    VCR.use_cassette('importers/trade_lead/australia.yml', record: :once) do
+      TradeLead::AustraliaData.new(
+        "#{Rails.root}/spec/fixtures/trade_leads/australia/trade_leads.csv").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeLead::Australia] = JSON.parse(open(
@@ -94,8 +96,10 @@ end
 shared_context 'TradeLead::Fbopen data' do
   before(:all) do
     TradeLead::Fbopen.recreate_index
-    TradeLead::FbopenImporter::PatchData.new(
-      "#{Rails.root}/spec/fixtures/trade_leads/fbopen/patch_source_short_input").import
+    VCR.use_cassette('importers/trade_lead/fbopen.yml', record: :once) do
+      TradeLead::FbopenImporter::PatchData.new(
+        "#{Rails.root}/spec/fixtures/trade_leads/fbopen/patch_source_short_input").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeLead::Fbopen] = JSON.parse(open(
@@ -130,8 +134,10 @@ end
 shared_context 'TradeLead::State data' do
   before(:all) do
     TradeLead::State.recreate_index
-    TradeLead::StateData.new(
-      "#{Rails.root}/spec/fixtures/trade_leads/state/state_trade_leads.json").import
+    VCR.use_cassette('importers/trade_lead/state.yml', record: :once) do
+      TradeLead::StateData.new(
+        "#{Rails.root}/spec/fixtures/trade_leads/state/state_trade_leads.json").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeLead::State] = JSON.parse(open(
@@ -184,8 +190,10 @@ end
 shared_context 'TradeLead::Uk data' do
   before(:all) do
     TradeLead::Uk.recreate_index
-    TradeLead::UkData.new(
-      "#{Rails.root}/spec/fixtures/trade_leads/uk/Notices.xml").import
+    VCR.use_cassette('importers/trade_lead/uk.yml', record: :once) do
+      TradeLead::UkData.new(
+        "#{Rails.root}/spec/fixtures/trade_leads/uk/Notices.xml").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeLead::Uk] = JSON.parse(open(
@@ -208,8 +216,10 @@ end
 shared_context 'TradeLead::Mca data' do
   before do
     TradeLead::Mca.recreate_index
-    TradeLead::McaData.new(
-      "#{Rails.root}/spec/fixtures/trade_leads/mca/mca_leads.xml").import
+    VCR.use_cassette('importers/trade_lead/mca.yml', record: :once) do
+      TradeLead::McaData.new(
+        "#{Rails.root}/spec/fixtures/trade_leads/mca/mca_leads.xml").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeLead::Mca] = JSON.parse(open("#{Rails.root}/spec/fixtures/trade_leads/mca/results.json").read)

@@ -86,6 +86,7 @@ module TariffRate
 
       entry[:tariff_rate_quota_note] = Sanitize.clean(entry[:tariff_rate_quota_note])
       entry[:source] = model_class.source[:code]
+      entry[:link_url] = get_bitly_url(entry[:link_url]) if entry[:link_url].present?
       entry
     end
 

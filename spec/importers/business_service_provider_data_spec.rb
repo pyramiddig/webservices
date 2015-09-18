@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BusinessServiceProviderData do
+describe BusinessServiceProviderData, vcr: { cassette_name: 'importers/business_service_provider.yml' } do
   let(:fixtures_file) { "#{Rails.root}/spec/fixtures/business_service_providers/articles.json" }
   let(:resource) { fixtures_file }
   let(:importer) { described_class.new(fixtures_file) }

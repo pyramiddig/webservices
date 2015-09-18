@@ -1,4 +1,5 @@
 require 'cgi'
+require 'open-uri'
 
 module Importable
   extend ActiveSupport::Concern
@@ -113,13 +114,29 @@ module Importable
     end.compact.first
   end
 
+  def url_lookups
+    @url_lookups ||= {}
+  end
+
   def get_bitly_url(url_string)
+    url_string = "http://#{url_string}" unless url_string[/^https?/]
+    if url_lookups.has_key?(url_string)
+      return url_lookups[url_string]
+    end
 
+    sleep 1
     url = CGI.escape(url_string)
-    response = open("https://api-ssl.bitly.com/v3/user/link_save?access_token=#{ENV['BITLY_ACCESS_TOKEN']}&longUrl=#{url}").read
-    #sleep 5
-    puts response
+    response = JSON.parse(open("https://api-ssl.bitly.com/v3/user/link_save?access_token=#{Rails.configuration.bitly_api_token}&longUrl=#{url}&title=#{model_class}").read)
 
+    while (response["status_code"] == "RATE_LIMIT_EXCEEDED" || response["status_code"] == "ALREADY_A_BITLY_LINK")
+      puts "Rate limit exceeded, pausing momentarily..."
+      sleep 10
+      response = JSON.parse(open("https://api-ssl.bitly.com/v3/user/link_save?access_token=#{Rails.configuration.bitly_api_token}&longUrl=#{url}&title=#{model_class}").read)
+    end
+
+    short_link = response["data"]["link_save"]["link"]
+    url_lookups[url_string] = short_link
+    return short_link
   end
 
   delegate :can_purge_old?, to: :model_class

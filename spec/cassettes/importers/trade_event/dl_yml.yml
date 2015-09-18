@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.state.gov/e/eb/directline/events/233658.htm&title=TradeEvent::Dl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:17:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '229'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"cb5a3c075f010f8085ee0235ec1abf9d16de92be"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1OhJeqK",
+        "aggregate_link": "http://bit.ly/1wWui7O", "long_url": "http://www.state.gov/e/eb/directline/events/233658.htm",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:17:22 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.state.gov/e/eb/directline/events/233191.htm&title=TradeEvent::Dl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:17:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '229'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"220f028cdb367a751420ec352fda9abec6c3cb69"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1Kp000h",
+        "aggregate_link": "http://bit.ly/1Kp000i", "long_url": "http://www.state.gov/e/eb/directline/events/233191.htm",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:17:23 GMT
+recorded_with: VCR 2.9.3

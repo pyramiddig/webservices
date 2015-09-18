@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TradeEvent::DlData do
+describe TradeEvent::DlData, vcr: { cassette_name: 'importers/trade_event/dl.yml' }  do
   let(:resource) { "#{Rails.root}/spec/fixtures/trade_events/dl/trade_events.xml" }
   let(:importer) { described_class.new(resource) }
   let(:expected) { YAML.load_file("#{File.dirname(__FILE__)}/dl/results.yaml") }

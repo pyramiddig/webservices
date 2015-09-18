@@ -22,10 +22,10 @@
   :end_date: '2014-07-03'
   :cost: 60.0
   :cost_currency: USD
-  :registration_link: http://www.cvent.com/d/24qxnc
+  :registration_link: http://bit.ly/1Kp1444
   :registration_title: USTDA China Shale Gas Development and Technologies Business
     Briefing
-  :url: http://www.ustda.gov/news/events/2014/EastAsia/China/ChinaShaleGasRTM.asp
+  :url: http://1.usa.gov/1Kp13NJ
   :venues:
   - :country: US
     :state: DC
@@ -77,7 +77,7 @@
   :cost_currency: ''
   :registration_link: 
   :registration_title: 
-  :url: http://www.ustda.gov/news/events/2014/SouthAsia/Vietnam/VietnamAirportDevelopmentOperationsRTM.asp
+  :url: http://1.usa.gov/1Kp15VR
   :venues:
   - :country: US
     :state: DC
@@ -124,7 +124,7 @@
   :cost_currency: ''
   :registration_link: 
   :registration_title: 
-  :url: http://www.ustda.gov/africanleadersvisits
+  :url: http://1.usa.gov/1Kp15VW
   :venues:
   - :country: US
     :state: IL
@@ -160,7 +160,7 @@
   :cost_currency: ''
   :registration_link: 
   :registration_title: 
-  :url: http://www.ustda.gov/africanleadersvisits
+  :url: http://1.usa.gov/1Kp15VW
   :venues:
   - :country: US
     :state: TX
@@ -194,7 +194,7 @@
   :cost_currency: ''
   :registration_link: 
   :registration_title: 
-  :url: http://www.ustda.gov/news/events/2014/SubSaharanAfrica/SubSaharanAfricaLightAircraftHelicopterRTM.asp
+  :url: http://1.usa.gov/1Kp14kA
   :venues:
   - :country: US
     :state: DC

@@ -69,7 +69,8 @@ module TradeEvent
       event[:contacts] = contact(entry)
       event[:venues] = venues(entry)
       event[:source] = model_class.source[:code]
-
+      event[:url] = get_bitly_url(event[:url]) if event[:url].present?
+      event[:registration_link] = get_bitly_url(event[:registration_link]) if event[:registration_link].present?
       EMPTY_RECORD.dup.merge(event)
     end
 

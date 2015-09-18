@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://www.fbo.gov/spg/USDA/FS/261/AG-0261-S-13-0079/listing.html&title=TradeLead::Fbopen
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 18 Sep 2015 17:25:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '241'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"83a067f8c8eb71d888bc5e3c35331dcd3f03a19a"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1JeX8lD",
+        "aggregate_link": "http://bit.ly/1JeX8lE", "long_url": "https://www.fbo.gov/spg/USDA/FS/261/AG-0261-S-13-0079/listing.html",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Fri, 18 Sep 2015 17:25:15 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=https://www.fbo.gov/spg/DLA/J3/DSCR-BSM/SPE4A5-13-R-0992/listing.html&title=TradeLead::Fbopen
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 18 Sep 2015 17:25:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '244'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"54f2c651b40e2da63e2bf57b2c7190b510bd5322"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1YkMQfb",
+        "aggregate_link": "http://bit.ly/1YkMQfc", "long_url": "https://www.fbo.gov/spg/DLA/J3/DSCR-BSM/SPE4A5-13-R-0992/listing.html",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Fri, 18 Sep 2015 17:25:16 GMT
+recorded_with: VCR 2.9.3

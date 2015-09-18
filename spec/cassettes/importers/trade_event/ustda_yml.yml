@@ -1,0 +1,188 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.ustda.gov/news/events/2014/EastAsia/China/ChinaShaleGasRTM.asp&title=TradeEvent::Ustda
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '248'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"42426f6ac444ec8e9683d4b12bff6e60524fcd09"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1Kp13NJ",
+        "aggregate_link": "http://bit.ly/1tHdHCL", "long_url": "http://www.ustda.gov/news/events/2014/EastAsia/China/ChinaShaleGasRTM.asp",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:08 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.cvent.com/d/24qxnc&title=TradeEvent::Ustda
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '201'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"f6193fbd4555f26d52658d14f6e894dced26d785"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://bit.ly/1Kp1444",
+        "aggregate_link": "http://bit.ly/1Kp1445", "long_url": "http://www.cvent.com/d/24qxnc",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:09 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.ustda.gov/news/events/2014/SouthAsia/Vietnam/VietnamAirportDevelopmentOperationsRTM.asp&title=TradeEvent::Ustda
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '273'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"5937e45dc79cc847487c35eed16dcdbed046b7d9"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1Kp15VR",
+        "aggregate_link": "http://bit.ly/1nxeS6V", "long_url": "http://www.ustda.gov/news/events/2014/SouthAsia/Vietnam/VietnamAirportDevelopmentOperationsRTM.asp",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:10 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.ustda.gov/africanleadersvisits&title=TradeEvent::Ustda
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:11 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '216'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"7626f612a5b103d9dac23cfdabbdf344f33f956d"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1Kp15VW",
+        "aggregate_link": "http://bit.ly/1tNJKDz", "long_url": "http://www.ustda.gov/africanleadersvisits",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:11 GMT
+- request:
+    method: get
+    uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.ustda.gov/news/events/2014/SubSaharanAfrica/SubSaharanAfricaLightAircraftHelicopterRTM.asp&title=TradeEvent::Ustda
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 17 Sep 2015 18:34:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '276'
+      Connection:
+      - keep-alive
+      Etag:
+      - '"01447bd9a4c887b52c4d29621a05a0d2cbd185ac"'
+    body:
+      encoding: UTF-8
+      string: '{"status_code": 200, "data": {"link_save": {"link": "http://1.usa.gov/1Kp14kA",
+        "aggregate_link": "http://bit.ly/1Kp14kB", "long_url": "http://www.ustda.gov/news/events/2014/SubSaharanAfrica/SubSaharanAfricaLightAircraftHelicopterRTM.asp",
+        "new_link": 1}}, "status_txt": "OK"}'
+    http_version: 
+  recorded_at: Thu, 17 Sep 2015 18:34:12 GMT
+recorded_with: VCR 2.9.3

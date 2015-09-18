@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TradeEvent::SbaData do
+describe TradeEvent::SbaData, vcr: { cassette_name: 'importers/trade_event/sba.yml' } do
   before(:all) do
     TradeEvent::Sba.recreate_index
   end

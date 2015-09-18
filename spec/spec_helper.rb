@@ -20,6 +20,7 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.debug_logger = File.open('log/vcr.log', 'w')
   c.default_cassette_options = { record: :none }
+  c.filter_sensitive_data('<BITLY_API_TOKEN>') { Rails.configuration.bitly_api_token }
   c.configure_rspec_metadata!
 end
 

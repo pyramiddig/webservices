@@ -28,10 +28,8 @@ class EccnData
     if rows[0].map(&:downcase) != EXPECTED_CSV_HEADERS
       fail "'#{rows[0]}' are not the headers we expect"
     end
-    @url_count = 0
-    entries = rows[1..-1].map { |row| process_row(row) }
-    puts "ECCN:  #{@url_count}"
-    #model_class.index(rows[1..-1].map { |row| process_row(row) })
+
+    model_class.index(rows[1..-1].map { |row| process_row(row) })
   end
 
   private
@@ -49,12 +47,9 @@ class EccnData
     eccns = row[1..5].compact
     urls = eccns.map { |eccn| eccn_to_url(eccn) }.uniq
 
-    doc[:url0] = urls[0]
-    doc[:url1] = urls[1]
-    doc[:url2] = urls[2]
-    @url_count += 1 if doc[:url0].present?
-    @url_count += 1 if doc[:url1].present?
-    @url_count += 1 if doc[:url2].present?
+    doc[:url0] = urls[0].present? ? get_bitly_url(urls[0]) : nil
+    doc[:url1] = urls[1].present? ? get_bitly_url(urls[1]) : nil
+    doc[:url2] = urls[2].present? ? get_bitly_url(urls[2]) : nil
     doc
   end
 

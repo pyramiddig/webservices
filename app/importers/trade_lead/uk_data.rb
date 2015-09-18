@@ -73,7 +73,7 @@ module TradeLead
       lead[:publish_date] = lead[:publish_date] ? parse_date(lead[:publish_date]) : nil
       lead[:source] = model_class.source[:code]
       lead[:country] = 'GB'
-
+      lead[:url] = get_bitly_url(lead[:url]) if lead[:url].present?
       sanitize_entry(lead)
     end
   end
