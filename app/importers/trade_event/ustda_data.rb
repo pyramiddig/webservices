@@ -13,13 +13,14 @@ module TradeEvent
       event_name:         './Title',
       start_date:         './Start-Date',
       end_date:           './End-Date',
-      event_time:         './End-Time',
+      event_time:         './Start-Time',
+      end_time:           './End-Time',
       cost:               './Cost',
       cost_currency:      './Cost-Currency',
       registration_link:  './Registration-Link',
       registration_title: './Registration-Title',
       description:        './Body',
-      industry:           './Industry',
+      industries:         './Industry',
       url:                './Learn-More-URL',
       first_name:         './First-Name',
       last_name:          './Last-Name',
@@ -53,16 +54,13 @@ module TradeEvent
     def process_entry(entry)
       event = extract_fields(entry, SINGLE_VALUED_XPATHS)
 
-      #%i(start_date end_date).each do |field|
-      #  format = (event[field] =~ /\/\d{2}$/) ? '%m/%d/%y' : '%m/%d/%Y'
-      #  event[field] = Date.strptime(event[field], format).iso8601 rescue nil if event[field]
-      #end
-
-      #event[:cost], event[:cost_currency] = cost(entry) if entry[:cost]
+      event[:start_date] = Date.strptime(event[:start_date], '%Y/%m/%d') rescue nil if event[:start_date]
+      event[:end_date] = Date.strptime(event[:end_date], '%Y/%m/%d') rescue nil if event[:end_date]
+      event[:cost], event[:cost_currency] = cost(entry) if entry[:cost]
 
       event[:venues] = venues(entry)
       event[:event_type] = nil
-      event[:event_source] = model_class.source[:code]
+      event[:source] = model_class.source[:code]
 
       event
     end
@@ -78,23 +76,11 @@ module TradeEvent
         VENUE_XPATHS.each do |key, value|
           venue_xpaths[key] = value % venue_number
         end
-        extract_fields(entry, venue_xpaths)
-      end
+        venue = extract_fields(entry, venue_xpaths)
+        venue[:country] = lookup_country(venue[:country]) unless venue[:country].blank?
+        venue.values.all?(&:blank?) ? nil : venue
+      end.compact
     end
 
-    #def venues(entry)
-    #  (1..3).map do|id|
-    #    fields = %w(country state city venue).map { |fname| "#{fname}#{id}".to_sym }
-    #    venue = entry
-    #            .slice(*fields)
-    #            .map do |k, v|
-    #      { k.to_s.chop => v.blank? ? '' : v.strip }
-    #    end
-    #            .reduce(:merge)
-    #            .symbolize_keys
-    #    venue[:country] = lookup_country(venue[:country]) unless venue[:country].blank?
-    #    venue.values.all?(&:blank?) ? nil : venue
-    #  end.compact
-    #end
   end
 end
