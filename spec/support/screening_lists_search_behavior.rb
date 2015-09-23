@@ -239,8 +239,10 @@ end
 shared_context 'ScreeningList::El data' do
   before(:all) do
     ScreeningList::El.recreate_index
-    ScreeningList::ElData.new(
-      "#{Rails.root}/spec/fixtures/screening_lists/el/el.csv").import
+    VCR.use_cassette('importers/screening_list/el.yml', record: :once) do
+      ScreeningList::ElData.new(
+        "#{Rails.root}/spec/fixtures/screening_lists/el/el.csv").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[ScreeningList::El] = JSON.parse(open(

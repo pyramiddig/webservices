@@ -60,6 +60,7 @@ module TradeLead
       end
 
       lead[:urls] = lead[:urls].split(',').map(&:squish) if lead[:urls]
+      lead[:urls] = lead[:urls].map{ |url| get_bitly_url(url) } if lead[:urls]
       lead[:country] = 'CA'
       lead[:source] = TradeLead::Canada.source[:code]
       lead

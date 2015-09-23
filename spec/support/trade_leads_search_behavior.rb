@@ -48,8 +48,10 @@ end
 shared_context 'TradeLead::Canada data' do
   before(:all) do
     TradeLead::Canada.recreate_index
-    TradeLead::CanadaData.new(
-      "#{Rails.root}/spec/fixtures/trade_leads/canada/canada_leads.csv").import
+    VCR.use_cassette('importers/trade_lead/canada.yml', record: :once) do
+      TradeLead::CanadaData.new(
+        "#{Rails.root}/spec/fixtures/trade_leads/canada/canada_leads.csv").import
+    end
 
     @all_possible_full_results ||= {}
     @all_possible_full_results[TradeLead::Canada] = JSON.parse(open(
@@ -71,7 +73,7 @@ end
 
 shared_examples 'it contains all TradeLead::Canada results that match "Montée"' do
   let(:source) { TradeLead::Canada }
-  let(:expected) { [4] }
+  let(:expected) { [3] }
   it_behaves_like 'it contains all expected results of source'
 end
 

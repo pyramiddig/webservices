@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 17 Sep 2015 19:40:47 GMT
+      - Wed, 23 Sep 2015 16:18:28 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -36,7 +36,7 @@ http_interactions:
         "aggregate_link": "http://bit.ly/1NuQBJH", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/991-ccl9",
         "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:47 GMT
+  recorded_at: Wed, 23 Sep 2015 16:18:28 GMT
 - request:
     method: get
     uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/952-ccl6&title=Eccn
@@ -58,7 +58,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 17 Sep 2015 19:40:48 GMT
+      - Wed, 23 Sep 2015 16:18:29 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -73,7 +73,7 @@ http_interactions:
         "aggregate_link": "http://bit.ly/1W0JFal", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/952-ccl6",
         "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:48 GMT
+  recorded_at: Wed, 23 Sep 2015 16:18:29 GMT
 - request:
     method: get
     uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/989-ccl1&title=Eccn
@@ -95,7 +95,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 17 Sep 2015 19:40:49 GMT
+      - Wed, 23 Sep 2015 16:18:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -110,7 +110,7 @@ http_interactions:
         "aggregate_link": "http://bit.ly/1W0JH25", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/989-ccl1",
         "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:49 GMT
+  recorded_at: Wed, 23 Sep 2015 16:18:30 GMT
 - request:
     method: get
     uri: https://api-ssl.bitly.com/v3/user/link_save?access_token=<BITLY_API_TOKEN>&longUrl=http://www.bis.doc.gov/index.php/forms-documents/doc_download/950-ccl5-pt1&title=Eccn
@@ -132,7 +132,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 17 Sep 2015 19:40:50 GMT
+      - Wed, 23 Sep 2015 16:18:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -147,5 +147,5 @@ http_interactions:
         "aggregate_link": "http://bit.ly/1W0JFr1", "long_url": "http://www.bis.doc.gov/index.php/forms-documents/doc_download/950-ccl5-pt1",
         "new_link": 0}}, "status_txt": "LINK_ALREADY_EXISTS"}'
     http_version: 
-  recorded_at: Thu, 17 Sep 2015 19:40:50 GMT
+  recorded_at: Wed, 23 Sep 2015 16:18:31 GMT
 recorded_with: VCR 2.9.3

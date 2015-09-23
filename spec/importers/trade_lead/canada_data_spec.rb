@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TradeLead::CanadaData do
+describe TradeLead::CanadaData, vcr: { cassette_name: 'importers/trade_lead/canada.yml', record: :once } do
   let(:resource)     { "#{Rails.root}/spec/fixtures/trade_leads/canada/canada_leads.csv" }
   let(:importer)     { described_class.new(resource) }
   let(:expected)     { YAML.load_file("#{File.dirname(__FILE__)}/canada/expected_canada_leads.yaml") }
@@ -30,7 +30,7 @@ describe TradeLead::CanadaData do
         end_user_entity:                      'Public Health Agency of Canada',
         description:                          "  Before awarding a Contract, \t  the government (...)  ",
         contact:                              "Reynolds(  ), \t (888) 000-0000",
-        document:                             'https://example.net/123/abc.pdf',
+        document:                             nil,
       }
     end
 
@@ -56,7 +56,7 @@ describe TradeLead::CanadaData do
                         implementing_entity:                  'Public Health Agency of Canada',
                         description:                          'Before awarding a Contract, the government (...)',
                         contact:                              'Reynolds( ), (888) 000-0000',
-                        urls:                                 ['https://example.net/123/abc.pdf'],
+                        urls:                                 nil,
                         country:                              'CA',
                         source:                               'CANADA',
                        )
