@@ -120,21 +120,12 @@ module Importable
 
   def get_bitly_url(url_string)
     url_string = "http://#{url_string}" unless url_string[/^https?/]
-    if url_lookups.has_key?(url_string)
+
+    if url_lookups.has_key?(url_string)  # Caching to catch duplicates in the context of a given importer run
       return url_lookups[url_string]
     end
 
-    sleep 1
-    url = CGI.escape(url_string)
-    response = JSON.parse(open("https://api-ssl.bitly.com/v3/user/link_save?access_token=#{Rails.configuration.bitly_api_token}&longUrl=#{url}&title=#{model_class}").read)
-
-    while (response["status_code"] == "RATE_LIMIT_EXCEEDED" || response["status_code"] == "ALREADY_A_BITLY_LINK")
-      puts "Rate limit exceeded, pausing momentarily..."
-      sleep 10
-      response = JSON.parse(open("https://api-ssl.bitly.com/v3/user/link_save?access_token=#{Rails.configuration.bitly_api_token}&longUrl=#{url}&title=#{model_class}").read)
-    end
-
-    short_link = response["data"]["link_save"]["link"]
+    short_link = UrlMapper.process_url(url_string, model_class.to_s, nil)
     url_lookups[url_string] = short_link
     return short_link
   end
